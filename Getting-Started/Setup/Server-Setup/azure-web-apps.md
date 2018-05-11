@@ -49,6 +49,14 @@ to be configured to support scaling/auto-scaling.
 * You should set your log4net minimum log priority to "WARN" in /Config/log4net.config if you are running a live site (of course if you are debugging this is irrelevant)
 * The minimum recommended Azure SQL Tier is "S2", however noticeable performance improvements are seen in higher Tiers 
 
+#### Examine v0.1.83+ ####
+
+Examine v0.1.83 introduced a new `directoryFactory` named `TempEnvDirectoryFactory` which should be added to all indexers in the `~/Config/ExamineSettings.config` file
+
+    directoryFactory="Examine.LuceneEngine.Directories.TempEnvDirectoryFactory,Examine"
+    
+The `TempEnvDirectoryFactory` allows Examine to store indexes directly in the environment temporary storage directory.
+
 #### Examine v0.1.80+ ####
 
 Examine v0.1.80 introduced a new `directoryFactory` named `SyncTempEnvDirectoryFactory` which should be added to all indexers in the `~/Config/ExamineSettings.config` file
